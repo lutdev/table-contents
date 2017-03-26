@@ -1,0 +1,27 @@
+{
+  "name": "lutskevich/table-contents",
+  "version": "1.0.0",
+  "description": "Laravel 5 table of contents generation",
+  "keywords": [
+    "laravel",
+    "text",
+    "table contents"
+  ],
+  "homepage": "https://github.com/alutskevich/table-contents",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andrew Lutskevich",
+      "email": "karantin91@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "5.6.*",
+    "illuminate/support": "5.0.x|5.1.x"
+  },
+  "autoload": {
+    "psr-4": {
+      "Lutskevich\\TOC\\": "src"
+    }
+  }
+}
