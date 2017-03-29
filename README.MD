@@ -36,7 +36,7 @@ composer require alutskevich/table-contents
 
 2. Add the `Lutskevich\TOC\TableContentsServiceProvider` provider to the `providers` array in 
 `config/app.php`:
-```
+```php
 'providers' => [
   Lutskevich\TOC\TableContentsServiceProvider::class,
 ],
