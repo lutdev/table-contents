@@ -29,6 +29,9 @@ Table of contents work with only `<h*>` tags 1-10 levels (`h1` - `h10`).
 [Laravel](https://laravel.com/) 5.1 or higher.
 ### Installation
 1. You can install the package using the [composer](https://getcomposer.org/). 
+```
+"alutskevich/table-contents": "1.0.*"
+```
 Or install it by running this command in your project root:
 ```
 composer require alutskevich/table-contents
