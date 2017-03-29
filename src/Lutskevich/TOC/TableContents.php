@@ -1,6 +1,11 @@
 <?php
 namespace Lutskevich\TOC;
 
+/**
+ * Class TableContents for generation table of contents
+ *
+ * @package Lutskevich\TOC
+ */
 class TableContents
 {
     private $symbols = "/\!|\?|:|\.|\,|\;|\\|\/|{|}|\[|\]|\(|\)|\%|\^|\*|_|\=|\+|\@|\#|\~|`|\'|\"|“/";
