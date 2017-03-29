@@ -2,7 +2,7 @@
 Package for generating table of contents for the text.
 
 For example, you have next text:
-```
+```html
 <h1>Header first level</h1>
 Some text here
 <h2>Header second level</h2>
@@ -42,20 +42,20 @@ composer require alutskevich/table-contents
 ],
 ```
 Then add the facade to your aliases array:
-```
+```php
 'aliases' => [
   ...
   'TableContents' => Lutskevich\TOC\TableContentsServiceProvider::class,
 ],
 ```
 ### Usage
-```
+```php
 //return string table contents
 TableContents::arrayTableContents($text);
 ```
 
 Table of contents have next structure:
-```
+```php
 "0": {
     "title": "Title",
     "link": "link"
@@ -94,7 +94,7 @@ Table of contents have next structure:
 * **link** - anchor link. If text have few same headers links of them will be 
 `<link>-<number>` (for example: link-1, link-2, link-3).
 
-```
+```php
 //Add ID attribute to the headers. Need for anchors.
 TableContents::setHeaderLinks($text)
 ```
