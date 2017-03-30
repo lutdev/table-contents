@@ -21,6 +21,10 @@ class TableContents
      */
     public function setHeaderLinks($description)
     {
+        /**
+         * Support h1-h10 headers. You can using wysiwyg editor and replace h7-h10 tags.
+         * This operation clear p tags around headers
+         */
         $description = preg_replace("/<(p|[hH](10|[1-9]))>(<[hH](10|[1-9]).*?>(.*?)<\/[hH](10|[1-9])>)<\/(p|[hH](10|[1-9]))>/", "$3", $description);
 
         preg_match_all("/<[hH](10|[1-9]).*?>(.*?)<\/[hH](10|[1-9])>/", $description, $items);
