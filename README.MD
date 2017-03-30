@@ -1,3 +1,6 @@
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
+[![GitHub version](https://badge.fury.io/gh/alutskevich%2Ftable-contents.svg)](https://badge.fury.io/gh/alutskevich%2Ftable-contents)
+
 ## About
 Package for generating table of contents for the text.
 
@@ -30,14 +33,14 @@ Table of contents work with only `<h*>` tags 1-10 levels (`h1` - `h10`).
 ### Installation
 1. You can install the package using the [composer](https://getcomposer.org/). 
 ```
-"alutskevich/table-contents": "1.0.*"
+"alutskevich/table-contents": "^1.0"
 ```
 Or install it by running this command in your project root:
 ```
 composer require alutskevich/table-contents
 ```
 
-2. Add the facade to your aliases array:
+2. Add the facade to your aliases array in the `config/app.php`:
 ```php
 'aliases' => [
   ...
@@ -95,13 +98,6 @@ Table of contents have next structure:
 TableContents::setHeaderLinks($text)
 ```
 
-
-### In the future
-* configuration file with:
-    * type of table contents: array|string. Array can be if it is strict headers nesting.
-    * save all attributes of the headers. Now all attributes are clearing.
-### Current version
-*1.0.0*
 ## Feedback
 Thank you! If you have proposition or find error/bug write me, please.
 ## License
