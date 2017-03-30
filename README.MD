@@ -102,3 +102,5 @@ TableContents::setHeaderLinks($text)
 Thank you! If you have proposition or find error/bug write me, please.
 ## License
 MIT
+## Links
+[HabraHabr](https://habrahabr.ru/post/325224/)
