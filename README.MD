@@ -37,18 +37,11 @@ Or install it by running this command in your project root:
 composer require alutskevich/table-contents
 ```
 
-2. Add the `Lutskevich\TOC\TableContentsServiceProvider` provider to the `providers` array in 
-`config/app.php`:
-```php
-'providers' => [
-  Lutskevich\TOC\TableContentsServiceProvider::class,
-],
-```
-Then add the facade to your aliases array:
+2. Add the facade to your aliases array:
 ```php
 'aliases' => [
   ...
-  'TableContents' => Lutskevich\TOC\TableContentsServiceProvider::class,
+  'TableContents' => Lutskevich\TOC\TableContentsFacade::class,
 ],
 ```
 ### Usage

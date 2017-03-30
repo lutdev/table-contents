@@ -23,5 +23,6 @@
     "psr-4": {
       "Lutskevich\\TOC\\": "src"
     }
-  }
+  },
+  "minimum-stability": "stable"
 }
