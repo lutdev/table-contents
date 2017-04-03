@@ -1,5 +1,5 @@
 {
-  "name": "alutskevich/table-contents",
+  "name": "lutdev/table-contents",
   "version": "1.0.0",
   "description": "Laravel 5 table of contents generation",
   "keywords": [
@@ -7,7 +7,7 @@
     "text",
     "table contents"
   ],
-  "homepage": "https://github.com/alutskevich/table-contents",
+  "homepage": "https://github.com/lutdev/table-contents",
   "license": "MIT",
   "authors": [
     {
@@ -21,7 +21,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Lutskevich\\TOC\\": "src"
+      "Lutdev\\TOC\\": "src"
     }
   },
   "minimum-stability": "stable"

@@ -1,5 +1,5 @@
 <?php
-namespace Lutskevich\TOC;
+namespace Lutdev\TOC;
 
 /**
  * Class TableContents for generation table of contents

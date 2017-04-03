@@ -44,7 +44,7 @@ composer require alutskevich/table-contents
 ```php
 'aliases' => [
   ...
-  'TableContents' => Lutskevich\TOC\TableContentsFacade::class,
+  'TableContents' => Lutdev\TOC\TableContentsFacade::class,
 ],
 ```
 ### Usage

@@ -1,5 +1,5 @@
 <?php
-namespace Lutskevich\TOC;
+namespace Lutdev\TOC;
 
 use Illuminate\Support\Facades\Facade;
 
