@@ -4,7 +4,7 @@ namespace Lutdev\TOC;
 /**
  * Class TableContents for generation table of contents
  *
- * @package Lutskevich\TOC
+ * @package Lutdev\TOC
  */
 class TableContents
 {
@@ -179,7 +179,7 @@ class TableContents
      * @param $to
      * @param $subject
      *
-     * @return mixed
+     * @return string
      *
      * @link http://stackoverflow.com/questions/1252693/using-str-replace-so-that-it-only-acts-on-the-first-match
      */
