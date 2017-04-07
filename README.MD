@@ -1,5 +1,5 @@
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
-[![GitHub version](https://badge.fury.io/gh/alutskevich%2Ftable-contents.svg)](https://badge.fury.io/gh/alutskevich%2Ftable-contents)
+[![GitHub version](https://badge.fury.io/gh/lutdev%2Ftable-contents.svg)](https://badge.fury.io/gh/lutdev%2Ftable-contents)
 
 ## About
 Package for generating table of contents for the text.
