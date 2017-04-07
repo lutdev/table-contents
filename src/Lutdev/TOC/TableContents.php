@@ -4,13 +4,13 @@ namespace Lutdev\TOC;
 /**
  * Class TableContents for generation table of contents
  *
- * @package Lutskevich\TOC
+ * @package Lutdev\TOC
  */
 class TableContents
 {
-    private $symbols = "/\!|\?|:|\.|\,|\;|\\|\/|{|}|\[|\]|\(|\)|\%|\^|\*|_|\=|\+|\@|\#|\~|`|\'|\"|“/";
-    private $spaces = "/ |\&nbsp\;|\\r|\\n/";
-    private $stripTags = "/<\/?[^>]+>|\&[a-z]+;|\'|\"/";
+    public $symbols = "/\!|\?|:|\.|\,|\;|\\|\/|{|}|\[|\]|\(|\)|\%|\^|\*|_|\=|\+|\@|\#|\~|`|\'|\"|“/";
+    public $spaces = "/ |\&nbsp\;|\\r|\\n/";
+    public $stripTags = "/<\/?[^>]+>|\&[a-z]+;|\'|\"/";
 
     /**
      * Add ID attribute to the headers (h1-h10)
@@ -19,7 +19,7 @@ class TableContents
      *
      * @return string
      */
-    public function setHeaderLinks($description)
+    public function headerLinks($description)
     {
         /**
          * Support h1-h10 headers. You can using wysiwyg editor and replace h7-h10 tags.
@@ -46,11 +46,11 @@ class TableContents
 
                 $title = "<h" . $items[1][$i] . " id='" . $link . "'>" . $items[2][$i] . "</h" . $items[1][$i] . ">";
 
-                $description = $this->str_replace_first($items[0][$i], $title, $description);
+                $description = $this->replaceFirstOccurrence($items[0][$i], $title, $description);
 
                 $usedItem[] = $name;
             } else {
-                $description = $this->str_replace_first($items[0][$i], '', $description);
+                $description = $this->replaceFirstOccurrence($items[0][$i], '', $description);
             }
         }
 
@@ -64,7 +64,7 @@ class TableContents
      *
      * @return string
      */
-    public function arrayTableContents($originText)
+    public function tableContents($originText)
     {
         $originText = preg_replace("/<(p|[hH](10|[1-9]))>(<[hH](10|[1-9]).*?>(.*?)<\/[hH](10|[1-9])>)<\/(p|[hH](10|[1-9]))>/", "$3", $originText);
 
@@ -161,7 +161,7 @@ class TableContents
      *
      * @return string
      */
-    private function replaceH1Symbols($text)
+    protected function replaceH1Symbols($text)
     {
         $text = preg_replace("/\&nbsp\;/", " ", $text);
         $text = preg_replace("/\&lt\;/", "«", $text);
@@ -179,11 +179,11 @@ class TableContents
      * @param $to
      * @param $subject
      *
-     * @return mixed
+     * @return string
      *
      * @link http://stackoverflow.com/questions/1252693/using-str-replace-so-that-it-only-acts-on-the-first-match
      */
-    private function str_replace_first($from, $to, $subject)
+    protected function replaceFirstOccurrence($from, $to, $subject)
     {
         $from = '/' . preg_quote($from, '/') . '/';
 
