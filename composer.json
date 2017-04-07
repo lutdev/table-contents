@@ -23,5 +23,6 @@
     "psr-4": {
       "Lutdev\\TOC\\": "src"
     }
-  }
+  },
+  "minimum-stability": "stable"
 }
