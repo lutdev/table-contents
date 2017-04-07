@@ -1,6 +1,6 @@
 {
   "name": "lutdev/table-contents",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Laravel 5 table of contents generation",
   "keywords": [
     "laravel",

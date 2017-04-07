@@ -33,7 +33,7 @@ Table of contents work with only `<h*>` tags 1-10 levels (`h1` - `h10`).
 ### Installation
 1. You can install the package using the [composer](https://getcomposer.org/). 
 ```
-"lutdev/table-contents": "^1.0"
+"lutdev/table-contents": "^2.0"
 ```
 Or install it by running this command in your project root:
 ```
