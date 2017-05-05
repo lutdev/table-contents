@@ -1,9 +1,8 @@
 {
   "name": "lutdev/table-contents",
-  "version": "2.0.0",
-  "description": "Laravel 5 table of contents generation",
+  "version": "2.1.0",
+  "description": "Table of contents generation",
   "keywords": [
-    "laravel",
     "text",
     "table contents"
   ],
@@ -16,8 +15,7 @@
     }
   ],
   "require": {
-    "php": "5.6.*",
-    "illuminate/support": "5.0.x|5.1.x"
+    "php": "7.1.*"
   },
   "autoload": {
     "psr-4": {

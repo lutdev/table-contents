@@ -19,7 +19,7 @@ class TableContents
      *
      * @return string
      */
-    public function headerLinks($description)
+    public function headerLinks(string $description) : string
     {
         /**
          * Support h1-h10 headers. You can using wysiwyg editor and replace h7-h10 tags.
@@ -64,7 +64,7 @@ class TableContents
      *
      * @return string
      */
-    public function tableContents($originText)
+    public function tableContents(string $originText) : string
     {
         $originText = preg_replace("/<(p|[hH](10|[1-9]))>(<[hH](10|[1-9]).*?>(.*?)<\/[hH](10|[1-9])>)<\/(p|[hH](10|[1-9]))>/", "$3", $originText);
 
@@ -161,7 +161,7 @@ class TableContents
      *
      * @return string
      */
-    protected function replaceH1Symbols($text)
+    protected function replaceH1Symbols(string $text) : string
     {
         $text = preg_replace("/\&nbsp\;/", " ", $text);
         $text = preg_replace("/\&lt\;/", "«", $text);
@@ -183,7 +183,7 @@ class TableContents
      *
      * @link http://stackoverflow.com/questions/1252693/using-str-replace-so-that-it-only-acts-on-the-first-match
      */
-    protected function replaceFirstOccurrence($from, $to, $subject)
+    protected function replaceFirstOccurrence(string $from, string $to, string $subject) : string
     {
         $from = '/' . preg_quote($from, '/') . '/';
 

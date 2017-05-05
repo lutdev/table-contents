@@ -29,28 +29,26 @@ Table of contents support how strict headers nesting and free nesting, i.e. it c
 Table of contents work with only `<h*>` tags 1-10 levels (`h1` - `h10`). 
 ## Getting Started
 ### Requirements
-[Laravel](https://laravel.com/) 5.1 or higher.
+PHP 7.1
 ### Installation
 1. You can install the package using the [composer](https://getcomposer.org/). 
 ```
-"lutdev/table-contents": "^2.0"
+"lutdev/table-contents": "^2.1"
 ```
 Or install it by running this command in your project root:
 ```
 composer require lutdev/table-contents
 ```
 
-2. Add the facade to your aliases array in the `config/app.php`:
+2. PHP class 
 ```php
-'aliases' => [
-  ...
-  'TableContents' => Lutdev\TOC\TableContentsFacade::class,
-],
+use Lutdev\TOC\TableContents
 ```
+or you can download package and include it via ```require```
 ### Usage
 ```php
 //return string table contents
-TableContents::arrayTableContents($text);
+TableContents::tableContents($text);
 ```
 
 Table of contents have next structure:
@@ -95,12 +93,10 @@ Table of contents have next structure:
 
 ```php
 //Add ID attribute to the headers. Need for anchors.
-TableContents::setHeaderLinks($text)
+TableContents::headerLinks($text)
 ```
 
 ## Feedback
 Thank you! If you have proposition or find error/bug write me, please.
 ## License
 MIT
-## Links
-[HabraHabr](https://habrahabr.ru/post/325224/)
