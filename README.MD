@@ -47,8 +47,11 @@ use Lutdev\TOC\TableContents
 or you can download package and include it via ```require```
 ### Usage
 ```php
+$tableContents = new TableContents();
+```
+```php
 //return string table contents
-TableContents::tableContents($text);
+$tableContents->tableContents($text);
 ```
 
 Table of contents have next structure:
@@ -93,7 +96,7 @@ Table of contents have next structure:
 
 ```php
 //Add ID attribute to the headers. Need for anchors.
-TableContents::headerLinks($text)
+$tableContents->headerLinks($text)
 ```
 
 ## Feedback
