@@ -1,4 +1,5 @@
 language: php
 php:
-- '7.1'
-- nightly
+  - '7.1'
+install:
+  - composer install
