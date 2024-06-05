@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Lutdev\TOC;
 
 /**
@@ -8,16 +11,12 @@ namespace Lutdev\TOC;
  */
 class TableContents
 {
-    public $symbols = "/\!|\?|:|\.|\,|\;|\\|\/|{|}|\[|\]|\(|\)|\%|\^|\*|_|\=|\+|\@|\#|\~|`|\'|\"|“/";
-    public $spaces = "/ |\&nbsp\;|\\r|\\n/";
-    public $stripTags = "/<\/?[^>]+>|\&[a-z]+;|\'|\"/";
+    public string $symbols = "/\!|\?|:|\.|\,|\;|\\|\/|{|}|\[|\]|\(|\)|\%|\^|\*|_|\=|\+|\@|\#|\~|`|\'|\"|“/";
+    public string $spaces = "/ |\&nbsp\;|\\r|\\n/";
+    public string $stripTags = "/<\/?[^>]+>|\&[a-z]+;|\'|\"/";
 
     /**
      * Add ID attribute to the headers (h1-h10)
-     *
-     * @param string $description
-     *
-     * @return string
      */
     public function headerLinks(string $description) : string
     {
@@ -31,8 +30,8 @@ class TableContents
 
         $usedItem = [];
 
-        for ($i = 0; $i < count($items[0]); $i++) {
-
+        $totalItems = count($items[0]);
+        for ($i = 0; $i < $totalItems; $i++) {
             $name = preg_replace($this->stripTags, '', trim($this->replaceH1Symbols($items[2][$i])));
 
             if ($name) {
@@ -44,7 +43,7 @@ class TableContents
                     $link .= '-' . ($repeatCount + 1);
                 }
 
-                $title = "<h" . $items[1][$i] . " id='" . $link . "'>" . $items[2][$i] . "</h" . $items[1][$i] . ">";
+                $title = '<h' . $items[1][$i] . " id='" . $link . "'>" . $items[2][$i] . '</h' . $items[1][$i] . '>';
 
                 $description = $this->replaceFirstOccurrence($items[0][$i], $title, $description);
 
@@ -59,10 +58,6 @@ class TableContents
 
     /**
      * Generate table of contents
-     *
-     * @param string $originText
-     *
-     * @return string
      */
     public function tableContents(string $originText) : string
     {
@@ -70,29 +65,29 @@ class TableContents
 
         preg_match_all("/<[hH](10|[1-9]).*?>(.*?)<\/[hH](10|[1-9])>/", $originText, $items);
 
-        $menu = "{";
+        $menu = '{';
         $subItemsCount = 0;
         $parentItem = [];
         $usedItem = [];
 
-        for ($i = 0; $i < count($items[0]); $i++) {
-
-            $name = preg_replace($this->stripTags, "", trim(html_entity_decode($this->replaceH1Symbols($items[2][$i]), ENT_QUOTES)));
+        $totalItems = count($items[0]);
+        for ($i = 0; $i < $totalItems; $i++) {
+            $name = preg_replace($this->stripTags, '', trim(html_entity_decode($this->replaceH1Symbols($items[2][$i]), ENT_QUOTES)));
 
             if ($name) {
-                $link = preg_replace($this->symbols, "", strtolower($name));
-                $link = preg_replace($this->spaces, "-", $link);
+                $link = preg_replace($this->symbols, '', strtolower($name));
+                $link = preg_replace($this->spaces, '-', $link);
                 $repeatCount = count(array_keys($usedItem, $name));
 
                 if ($repeatCount > 0) {
                     $link .= "-" . ($repeatCount + 1);
                 }
 
-                if ($i == 0) {
+                if ($i === 0) {
                     $menu .= '"' . $i . '": {';
                     $menu .= '"title": "' . $name . '",';
                     $menu .= '"link": "' . $link . '"';
-                } elseif ($i != 0 && $items[1][$i] > $items[1][$i - 1]) {
+                } elseif ($i !== 0 && $items[1][$i] > $items[1][$i - 1]) {
 
                     $quantity = $items[1][$i] - $items[1][$i - 1];
                     $menu .= ', "subItems": {';
@@ -109,14 +104,14 @@ class TableContents
                     $menu .= '"title": "' . $name . '",';
                     $menu .= '"link": "' . $link . '"';
 
-                } elseif ($i != 0 && $items[1][$i] < $items[1][$i - 1]) {
+                } elseif ($i !== 0 && $items[1][$i] < $items[1][$i - 1]) {
                     $quantity = $items[1][$i - 1] - $items[1][$i];
                     $menu .= "}";
 
                     if ($subItemsCount) {
                         for ($j = 1; $j <= $quantity * 2; $j++) {
-                            $menu .= "}";
-                            if ($j % 2 == 0) {
+                            $menu .= '}';
+                            if ($j % 2 === 0) {
                                 $subItemsCount--;
                                 array_pop($parentItem);
                             }
@@ -139,27 +134,23 @@ class TableContents
 
                     if ($lastParent && $lastParent < $a) {
                         for ($q = 0; $q <= ($a - $lastParent) * 2; $q++) {
-                            $menu .= "}";
+                            $menu .= '}';
                         }
                     } else {
-                        $menu .= "}";
+                        $menu .= '}';
                     }
                 }
 
                 $usedItem[] = $name;
             }
         }
-        $menu .= "}";
+        $menu .= '}';
 
         return $menu;
     }
 
     /**
      * Replace special symbols in the headers
-     *
-     * @param string $text
-     *
-     * @return string
      */
     protected function replaceH1Symbols(string $text) : string
     {
@@ -167,19 +158,12 @@ class TableContents
         $text = preg_replace("/\&lt\;/", "«", $text);
         $text = preg_replace("/\&gt\;/", "»", $text);
         $text = preg_replace("/\&laquo\;/", "«", $text);
-        $text = preg_replace("/\&raquo\;/", "»", $text);
 
-        return $text;
+        return preg_replace("/\&raquo\;/", "»", $text);
     }
 
     /**
      * Replace first occurrence
-     *
-     * @param $from
-     * @param $to
-     * @param $subject
-     *
-     * @return string
      *
      * @link http://stackoverflow.com/questions/1252693/using-str-replace-so-that-it-only-acts-on-the-first-match
      */

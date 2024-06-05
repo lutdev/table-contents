@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
-         backupStaticAttributes="false"
          bootstrap="tests/bootstrap.php"
          colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
          processIsolation="false"
-         stopOnFailure="true"
-         syntaxCheck="false">
+         stopOnFailure="true">
     <testsuites>
         <testsuite name="Base tests">
-            <directory suffix="Test.php" phpVersion="7.1.*">./tests</directory>
+            <directory suffix="Test.php" phpVersion="8.2.*">./tests</directory>
         </testsuite>
     </testsuites>
-    <filter>
-        <whitelist>
-            <directory suffix=".php">./src</directory>
-        </whitelist>
-    </filter>
 </phpunit>
