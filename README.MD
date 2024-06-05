@@ -30,11 +30,12 @@ Table of contents support how strict headers nesting and free nesting, i.e. it c
 Table of contents work with only `<h*>` tags 1-10 levels (`h1` - `h10`). 
 ## Getting Started
 ### Requirements
-PHP 7.1
+PHP 8.2
+
 ### Installation
 1. You can install the package using the [composer](https://getcomposer.org/). 
 ```
-"lutdev/table-contents": "^2.1"
+"lutdev/table-contents": "^3.0"
 ```
 Or install it by running this command in your project root:
 ```
