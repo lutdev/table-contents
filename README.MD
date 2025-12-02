@@ -1,6 +1,5 @@
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 [![GitHub version](https://badge.fury.io/gh/lutdev%2Ftable-contents.svg)](https://badge.fury.io/gh/lutdev%2Ftable-contents)
-[![Build Status](https://travis-ci.org/lutdev/table-contents.svg?branch=master)](https://travis-ci.org/lutdev/table-contents)
 
 ## About
 Package for generating table of contents for the text.
