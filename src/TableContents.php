@@ -20,6 +20,9 @@ class TableContents
      */
     public function headerLinks(string $description) : string
     {
+        if ($description === '') {
+            return '';
+        }
         /**
          * Support h1-h10 headers. You can using wysiwyg editor and replace h7-h10 tags.
          * This operation clear p tags around headers
@@ -61,6 +64,10 @@ class TableContents
      */
     public function tableContents(string $originText) : string
     {
+        if ($originText === '') {
+            return '';
+        }
+
         $originText = preg_replace("/<(p|[hH](10|[1-9]))>(<[hH](10|[1-9]).*?>(.*?)<\/[hH](10|[1-9])>)<\/(p|[hH](10|[1-9]))>/", "$3", $originText);
 
         preg_match_all("/<[hH](10|[1-9]).*?>(.*?)<\/[hH](10|[1-9])>/", $originText, $items);
@@ -87,24 +94,22 @@ class TableContents
                     $menu .= '"' . $i . '": {';
                     $menu .= '"title": "' . $name . '",';
                     $menu .= '"link": "' . $link . '"';
-                } elseif ($i !== 0 && $items[1][$i] > $items[1][$i - 1]) {
-
+                } elseif ($items[1][$i] > $items[1][$i - 1]) {
                     $quantity = $items[1][$i] - $items[1][$i - 1];
                     $menu .= ', "subItems": {';
-                    array_push($parentItem, (int)$items[1][$i - 1]);
+                    $parentItem[] = (int)$items[1][$i - 1];
                     $subItemsCount += $quantity;
 
                     for ($j = 1; $j <= $quantity - 1; $j++) {
                         $menu .= "\"" . $j . "\":{";
                         $menu .= '"subItems": {';
-                        array_push($parentItem, $items[1][$i - 1] + $j);
+                        $parentItem[] = $items[1][$i - 1] + $j;
                     }
 
                     $menu .= '"' . $i . '": {';
                     $menu .= '"title": "' . $name . '",';
                     $menu .= '"link": "' . $link . '"';
-
-                } elseif ($i !== 0 && $items[1][$i] < $items[1][$i - 1]) {
+                } elseif ($items[1][$i] < $items[1][$i - 1]) {
                     $quantity = $items[1][$i - 1] - $items[1][$i];
                     $menu .= "}";
 
